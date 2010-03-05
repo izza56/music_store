@@ -1,0 +1,14 @@
+<p>
+  <b>Title:</b>
+  <%=h @album.title %>
+</p>
+
+<p>
+  <b>Review:</b>
+  <%=h @album.review %>
+</p>
+
+
+<%= link_to 'Edit', :controller => "albums", :action => "edit", :id => @album.id %> |
+
+<%= link_to 'Back', :controller => "albums", :action => "index" %>

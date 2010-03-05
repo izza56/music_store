@@ -1,0 +1,966 @@
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing Rails::InfoController#properties (for 127.0.0.1 at 2010-03-05 14:55:05) [GET]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSHOW TABLES[0m
+Completed in 281ms (View: 62, DB: 0) | 200 OK [http://localhost/rails/info/properties]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (859.0ms)[0m   [0;1mCREATE TABLE `schema_migrations` (`version` varchar(255) NOT NULL) ENGINE=InnoDB[0m
+  [4;35;1mSQL (563.0ms)[0m   [0mCREATE UNIQUE INDEX `unique_schema_migrations` ON `schema_migrations` (`version`)[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to CreateAlbums (20100305145751)
+  [4;36;1mSQL (125.0ms)[0m   [0;1mCREATE TABLE `albums` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `title` varchar(255), `review` text, `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+  [4;35;1mSQL (125.0ms)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20100305145751')[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (15.0ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (250.0ms)[0m   [0mSHOW FIELDS FROM `albums`[0m
+  [4;36;1mSQL (125.0ms)[0m   [0;1mdescribe `albums`[0m
+  [4;35;1mSQL (31.0ms)[0m   [0mSHOW KEYS FROM `albums`[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing AlbumsController#index (for 127.0.0.1 at 2010-03-05 15:01:09) [GET]
+  [4;35;1mAlbum Load (0.0ms)[0m   [0mSELECT * FROM `albums` [0m
+Rendering template within layouts/albums
+Rendering albums/index
+Completed in 1859ms (View: 1843, DB: 0) | 200 OK [http://localhost/albums]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing AlbumsController#new (for 127.0.0.1 at 2010-03-05 15:01:36) [GET]
+  [4;36;1mAlbum Columns (47.0ms)[0m   [0;1mSHOW FIELDS FROM `albums`[0m
+Rendering template within layouts/albums
+Rendering albums/new
+Completed in 109ms (View: 47, DB: 47) | 200 OK [http://localhost/albums/new]
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing AlbumsController#create (for 127.0.0.1 at 2010-03-05 15:02:03) [POST]
+  Parameters: {"commit"=>"Create", "authenticity_token"=>"VuBOqqrt0pll9bOPHsUeEQ2TcbgoTtmmaq3pTdrbmnQ=", "album"=>{"review"=>"", "title"=>"U2 No Line on the Horizon"}}
+  [4;35;1mAlbum Columns (109.0ms)[0m   [0mSHOW FIELDS FROM `albums`[0m
+  [4;36;1mSQL (63.0ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mAlbum Create (46.0ms)[0m   [0mINSERT INTO `albums` (`updated_at`, `title`, `review`, `created_at`) VALUES('2010-03-05 15:02:04', 'U2 No Line on the Horizon', '', '2010-03-05 15:02:04')[0m
+  [4;36;1mSQL (63.0ms)[0m   [0;1mCOMMIT[0m
+Redirected to http://localhost:3000/albums/1
+Completed in 329ms (DB: 281) | 302 Found [http://localhost/albums]
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing AlbumsController#show (for 127.0.0.1 at 2010-03-05 15:02:04) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mAlbum Columns (32.0ms)[0m   [0mSHOW FIELDS FROM `albums`[0m
+  [4;36;1mAlbum Load (78.0ms)[0m   [0;1mSELECT * FROM `albums` WHERE (`albums`.`id` = 1) [0m
+Rendering template within layouts/albums
+Rendering albums/show
+Completed in 172ms (View: 32, DB: 110) | 200 OK [http://localhost/albums/1]
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing AlbumsController#index (for 127.0.0.1 at 2010-03-05 15:02:09) [GET]
+  [4;35;1mAlbum Load (0.0ms)[0m   [0mSELECT * FROM `albums` [0m
+Rendering template within layouts/albums
+Rendering albums/index
+  [4;36;1mAlbum Columns (31.0ms)[0m   [0;1mSHOW FIELDS FROM `albums`[0m
+Completed in 93ms (View: 47, DB: 31) | 200 OK [http://localhost/albums]
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing AlbumsController#new (for 127.0.0.1 at 2010-03-05 15:02:10) [GET]
+  [4;35;1mAlbum Columns (63.0ms)[0m   [0mSHOW FIELDS FROM `albums`[0m
+Rendering template within layouts/albums
+Rendering albums/new
+Completed in 109ms (View: 16, DB: 63) | 200 OK [http://localhost/albums/new]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing AlbumsController#create (for 127.0.0.1 at 2010-03-05 15:05:48) [POST]
+  Parameters: {"commit"=>"Create", "authenticity_token"=>"VuBOqqrt0pll9bOPHsUeEQ2TcbgoTtmmaq3pTdrbmnQ=", "album"=>{"review"=>"Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was po", "title"=>"Prodigy - Invaders must die"}}
+  [4;36;1mAlbum Columns (93.0ms)[0m   [0;1mSHOW FIELDS FROM `albums`[0m
+  [4;35;1mSQL (47.0ms)[0m   [0mBEGIN[0m
+  [4;36;1mAlbum Create (0.0ms)[0m   [0;1mINSERT INTO `albums` (`updated_at`, `title`, `review`, `created_at`) VALUES('2010-03-05 15:05:49', 'Prodigy - Invaders must die', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was po', '2010-03-05 15:05:49')[0m
+  [4;35;1mSQL (266.0ms)[0m   [0mCOMMIT[0m
+Redirected to http://localhost:3000/albums/2
+Completed in 422ms (DB: 406) | 302 Found [http://localhost/albums]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing AlbumsController#show (for 127.0.0.1 at 2010-03-05 15:05:49) [GET]
+  Parameters: {"id"=>"2"}
+  [4;36;1mAlbum Columns (16.0ms)[0m   [0;1mSHOW FIELDS FROM `albums`[0m
+  [4;35;1mAlbum Load (62.0ms)[0m   [0mSELECT * FROM `albums` WHERE (`albums`.`id` = 2) [0m
+Rendering template within layouts/albums
+Rendering albums/show
+Completed in 125ms (View: 16, DB: 78) | 200 OK [http://localhost/albums/2]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (16.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing AlbumsController#index (for 127.0.0.1 at 2010-03-05 15:05:52) [GET]
+  [4;36;1mAlbum Load (0.0ms)[0m   [0;1mSELECT * FROM `albums` [0m
+Rendering template within layouts/albums
+Rendering albums/index
+  [4;35;1mAlbum Columns (31.0ms)[0m   [0mSHOW FIELDS FROM `albums`[0m
+Completed in 203ms (View: 32, DB: 47) | 200 OK [http://localhost/albums]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing AlbumsController#edit (for 127.0.0.1 at 2010-03-05 15:05:55) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mAlbum Columns (15.0ms)[0m   [0;1mSHOW FIELDS FROM `albums`[0m
+  [4;35;1mAlbum Load (31.0ms)[0m   [0mSELECT * FROM `albums` WHERE (`albums`.`id` = 1) [0m
+Rendering template within layouts/albums
+Rendering albums/edit
+Completed in 94ms (View: 32, DB: 46) | 200 OK [http://localhost/albums/1/edit]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing AlbumsController#update (for 127.0.0.1 at 2010-03-05 15:05:59) [PUT]
+  Parameters: {"commit"=>"Update", "authenticity_token"=>"VuBOqqrt0pll9bOPHsUeEQ2TcbgoTtmmaq3pTdrbmnQ=", "id"=>"1", "album"=>{"review"=>"Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was po", "title"=>"U2 No Line on the Horizon"}}
+  [4;36;1mAlbum Columns (32.0ms)[0m   [0;1mSHOW FIELDS FROM `albums`[0m
+  [4;35;1mAlbum Load (15.0ms)[0m   [0mSELECT * FROM `albums` WHERE (`albums`.`id` = 1) [0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mAlbum Update (78.0ms)[0m   [0mUPDATE `albums` SET `review` = 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was po', `updated_at` = '2010-03-05 15:05:59' WHERE `id` = 1[0m
+  [4;36;1mSQL (63.0ms)[0m   [0;1mCOMMIT[0m
+Redirected to http://localhost:3000/albums/1
+Completed in 219ms (DB: 188) | 302 Found [http://localhost/albums/1]
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing AlbumsController#show (for 127.0.0.1 at 2010-03-05 15:05:59) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mAlbum Columns (32.0ms)[0m   [0mSHOW FIELDS FROM `albums`[0m
+  [4;36;1mAlbum Load (0.0ms)[0m   [0;1mSELECT * FROM `albums` WHERE (`albums`.`id` = 1) [0m
+Rendering template within layouts/albums
+Rendering albums/show
+Completed in 78ms (View: 16, DB: 32) | 200 OK [http://localhost/albums/1]
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing AlbumsController#index (for 127.0.0.1 at 2010-03-05 15:06:02) [GET]
+  [4;35;1mAlbum Load (0.0ms)[0m   [0mSELECT * FROM `albums` [0m
+Rendering template within layouts/albums
+Rendering albums/index
+  [4;36;1mAlbum Columns (62.0ms)[0m   [0;1mSHOW FIELDS FROM `albums`[0m
+Completed in 125ms (View: 47, DB: 62) | 200 OK [http://localhost/albums]
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing AlbumsController#new (for 127.0.0.1 at 2010-03-05 15:06:19) [GET]
+  [4;35;1mAlbum Columns (16.0ms)[0m   [0mSHOW FIELDS FROM `albums`[0m
+Rendering template within layouts/albums
+Rendering albums/new
+Completed in 63ms (View: 16, DB: 16) | 200 OK [http://localhost/albums/new]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing AlbumsController#create (for 127.0.0.1 at 2010-03-05 15:06:32) [POST]
+  Parameters: {"commit"=>"Create", "authenticity_token"=>"VuBOqqrt0pll9bOPHsUeEQ2TcbgoTtmmaq3pTdrbmnQ=", "album"=>{"review"=>"Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was po", "title"=>"Illinois Surfjan stevans"}}
+  [4;36;1mAlbum Columns (62.0ms)[0m   [0;1mSHOW FIELDS FROM `albums`[0m
+  [4;35;1mSQL (62.0ms)[0m   [0mBEGIN[0m
+  [4;36;1mAlbum Create (0.0ms)[0m   [0;1mINSERT INTO `albums` (`updated_at`, `title`, `review`, `created_at`) VALUES('2010-03-05 15:06:32', 'Illinois Surfjan stevans', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was po', '2010-03-05 15:06:32')[0m
+  [4;35;1mSQL (63.0ms)[0m   [0mCOMMIT[0m
+Redirected to http://localhost:3000/albums/3
+Completed in 234ms (DB: 187) | 302 Found [http://localhost/albums]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing AlbumsController#show (for 127.0.0.1 at 2010-03-05 15:06:32) [GET]
+  Parameters: {"id"=>"3"}
+  [4;36;1mAlbum Columns (15.0ms)[0m   [0;1mSHOW FIELDS FROM `albums`[0m
+  [4;35;1mAlbum Load (16.0ms)[0m   [0mSELECT * FROM `albums` WHERE (`albums`.`id` = 3) [0m
+Rendering template within layouts/albums
+Rendering albums/show
+Completed in 63ms (View: 0, DB: 31) | 200 OK [http://localhost/albums/3]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing AlbumsController#index (for 127.0.0.1 at 2010-03-05 15:06:34) [GET]
+  [4;36;1mAlbum Load (0.0ms)[0m   [0;1mSELECT * FROM `albums` [0m
+Rendering template within layouts/albums
+Rendering albums/index
+  [4;35;1mAlbum Columns (31.0ms)[0m   [0mSHOW FIELDS FROM `albums`[0m
+Completed in 141ms (View: 79, DB: 31) | 200 OK [http://localhost/albums]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing AlbumsController#edit (for 127.0.0.1 at 2010-03-05 15:20:07) [GET]
+  Parameters: {"id"=>"2"}
+  [4;36;1mAlbum Columns (94.0ms)[0m   [0;1mSHOW FIELDS FROM `albums`[0m
+  [4;35;1mAlbum Load (31.0ms)[0m   [0mSELECT * FROM `albums` WHERE (`albums`.`id` = 2) [0m
+Rendering template within layouts/albums
+Rendering albums/edit
+Completed in 203ms (View: 47, DB: 125) | 200 OK [http://localhost/albums/2/edit]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing AlbumsController#edit (for 127.0.0.1 at 2010-03-05 15:38:03) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mAlbum Columns (31.0ms)[0m   [0;1mSHOW FIELDS FROM `albums`[0m
+  [4;35;1mAlbum Load (31.0ms)[0m   [0mSELECT * FROM `albums` WHERE (`albums`.`id` = 1) [0m
+Rendering template within layouts/albums
+Rendering albums/edit
+Completed in 110ms (View: 32, DB: 62) | 200 OK [http://localhost/albums/1/edit]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing AlbumsController#edit (for 127.0.0.1 at 2010-03-05 15:38:08) [GET]
+  Parameters: {"id"=>"3"}
+  [4;36;1mAlbum Columns (63.0ms)[0m   [0;1mSHOW FIELDS FROM `albums`[0m
+  [4;35;1mAlbum Load (31.0ms)[0m   [0mSELECT * FROM `albums` WHERE (`albums`.`id` = 3) [0m
+Rendering template within layouts/albums
+Rendering albums/edit
+Completed in 172ms (View: 47, DB: 94) | 200 OK [http://localhost/albums/3/edit]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing AlbumsController#index to html (for 127.0.0.1 at 2010-03-05 15:41:36) [GET]
+  [4;36;1mAlbum Load (0.0ms)[0m   [0;1mSELECT * FROM `albums` [0m
+Rendering template within layouts/albums
+Rendering albums/index
+  [4;35;1mAlbum Columns (32.0ms)[0m   [0mSHOW FIELDS FROM `albums`[0m
+Completed in 281ms (View: 46, DB: 32) | 200 OK [http://localhost/albums.html]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing AlbumsController#index to xml (for 127.0.0.1 at 2010-03-05 15:41:44) [GET]
+  [4;36;1mAlbum Load (0.0ms)[0m   [0;1mSELECT * FROM `albums` [0m
+  [4;35;1mAlbum Columns (63.0ms)[0m   [0mSHOW FIELDS FROM `albums`[0m
+Completed in 1390ms (View: 1312, DB: 63) | 200 OK [http://localhost/albums.xml]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing AlbumsController#index to php (for 127.0.0.1 at 2010-03-05 15:42:17) [GET]
+  [4;36;1mAlbum Load (0.0ms)[0m   [0;1mSELECT * FROM `albums` [0m
+Completed in 16ms (View: 0, DB: 0) | 406 Not Acceptable [http://localhost/albums.php]
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing AlbumsController#index to ph2 (for 127.0.0.1 at 2010-03-05 15:42:24) [GET]
+  [4;35;1mAlbum Load (0.0ms)[0m   [0mSELECT * FROM `albums` [0m
+Completed in 16ms (View: 0, DB: 0) | 406 Not Acceptable [http://localhost/albums.ph2]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing AlbumsController#index to html (for 127.0.0.1 at 2010-03-05 15:42:28) [GET]
+  [4;36;1mAlbum Load (0.0ms)[0m   [0;1mSELECT * FROM `albums` [0m
+Rendering template within layouts/albums
+Rendering albums/index
+  [4;35;1mAlbum Columns (31.0ms)[0m   [0mSHOW FIELDS FROM `albums`[0m
+Completed in 94ms (View: 47, DB: 31) | 200 OK [http://localhost/albums.html]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing AlbumsController#index to xml (for 127.0.0.1 at 2010-03-05 15:42:32) [GET]
+  [4;36;1mAlbum Load (0.0ms)[0m   [0;1mSELECT * FROM `albums` [0m
+  [4;35;1mAlbum Columns (0.0ms)[0m   [0mSHOW FIELDS FROM `albums`[0m
+Completed in 47ms (View: 31, DB: 0) | 200 OK [http://localhost/albums.xml]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-03-05 15:44:27) [GET]
+
+ActionController::RoutingError (No route matches "/rails/info/properties" with {:method=>:get}):
+  C:/Ruby/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  C:/Ruby/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendering rescues/layout (not_found)
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-03-05 15:44:42) [GET]
+
+ActionController::RoutingError (No route matches "/alumns" with {:method=>:get}):
+  C:/Ruby/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  C:/Ruby/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendering rescues/layout (not_found)
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing Rails::InfoController#properties (for 127.0.0.1 at 2010-03-05 15:45:24) [GET]
+  [4;36;1mSQL (16.0ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (16.0ms)[0m   [0mSELECT version FROM schema_migrations[0m
+Completed in 156ms (View: 15, DB: 32) | 200 OK [http://localhost/rails/info/properties]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing AlbumsController#index (for 127.0.0.1 at 2010-03-05 15:45:31) [GET]
+  [4;36;1mAlbum Load (16.0ms)[0m   [0;1mSELECT * FROM `albums` [0m
+Rendering template within layouts/albums
+Rendering albums/index
+  [4;35;1mAlbum Columns (125.0ms)[0m   [0mSHOW FIELDS FROM `albums`[0m
+Completed in 718ms (View: 562, DB: 141) | 200 OK [http://localhost/albums]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (15.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing AlbumsController#index to html (for 127.0.0.1 at 2010-03-05 15:45:37) [GET]
+  [4;36;1mAlbum Load (0.0ms)[0m   [0;1mSELECT * FROM `albums` [0m
+Rendering template within layouts/albums
+Rendering albums/index
+  [4;35;1mAlbum Columns (47.0ms)[0m   [0mSHOW FIELDS FROM `albums`[0m
+Completed in 219ms (View: 157, DB: 62) | 200 OK [http://localhost/albums.html]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing AlbumsController#index to xml (for 127.0.0.1 at 2010-03-05 15:45:42) [GET]
+  [4;36;1mAlbum Load (0.0ms)[0m   [0;1mSELECT * FROM `albums` [0m
+  [4;35;1mAlbum Columns (47.0ms)[0m   [0mSHOW FIELDS FROM `albums`[0m
+Completed in 469ms (View: 406, DB: 47) | 200 OK [http://localhost/albums.xml]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing AlbumsController#index to html (for 127.0.0.1 at 2010-03-05 15:45:49) [GET]
+  [4;36;1mAlbum Load (0.0ms)[0m   [0;1mSELECT * FROM `albums` [0m
+Rendering template within layouts/albums
+Rendering albums/index
+  [4;35;1mAlbum Columns (31.0ms)[0m   [0mSHOW FIELDS FROM `albums`[0m
+Completed in 110ms (View: 63, DB: 31) | 200 OK [http://localhost/albums.html]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-03-05 16:21:38) [GET]
+
+ActionController::RoutingError (No route matches "/rails/info/properties" with {:method=>:get}):
+  C:/Ruby/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  C:/Ruby/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendering rescues/layout (not_found)
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing AlbumsController#index (for 127.0.0.1 at 2010-03-05 16:22:56) [GET]
+  [4;36;1mAlbum Load (188.0ms)[0m   [0;1mSELECT * FROM `albums` [0m
+Rendering template within layouts/albums
+Rendering albums/index
+  [4;35;1mAlbum Columns (438.0ms)[0m   [0mSHOW FIELDS FROM `albums`[0m
+
+ActionView::TemplateError (undefined method `album_path' for #<ActionView::Base:0x357ac44>) on line #13 of app/views/albums/index.html.erb:
+10:   <tr>
+11:     <td><%=h album.title %></td>
+12:     <td><%=h album.review %></td>
+13:     <td><%= link_to 'Show', album %></td>
+14:     <td><%= link_to 'Edit', edit_album_path(album) %></td>
+15:     <td><%= link_to 'Destroy', album, :confirm => 'Are you sure?', :method => :delete %></td>
+16:   </tr>
+
+    app/views/albums/index.html.erb:13
+    app/views/albums/index.html.erb:9:in `each'
+    app/views/albums/index.html.erb:9
+    app/controllers/albums_controller.rb:7:in `index'
+    C:/Ruby/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    C:/Ruby/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    C:/Ruby/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    C:/Ruby/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    C:/Ruby/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    C:/Ruby/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    C:/Ruby/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    C:/Ruby/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    C:/Ruby/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    C:/Ruby/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (344.0ms)
+Rendered rescues/_request_and_response (0.0ms)
+Rendering rescues/layout (internal_server_error)
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing AlbumsController#index (for 127.0.0.1 at 2010-03-05 16:27:44) [GET]
+  [4;36;1mAlbum Load (0.0ms)[0m   [0;1mSELECT * FROM `albums` [0m
+Rendering template within layouts/albums
+Rendering albums/index
+  [4;35;1mAlbum Columns (31.0ms)[0m   [0mSHOW FIELDS FROM `albums`[0m
+
+ActionView::TemplateError (undefined method `album_path' for #<ActionView::Base:0x365e8cc>) on line #13 of app/views/albums/index.html.erb:
+10:   <tr>
+11:     <td><%=h album.title %></td>
+12:     <td><%=h album.review %></td>
+13:     <td><%= link_to 'Show', album %></td>
+14:     <td><%= link_to 'Edit', edit_album_path(album) %></td>
+15:     <td><%= link_to 'Destroy', album, :confirm => 'Are you sure?', :method => :delete %></td>
+16:   </tr>
+
+    app/views/albums/index.html.erb:13
+    app/views/albums/index.html.erb:9:in `each'
+    app/views/albums/index.html.erb:9
+    app/controllers/albums_controller.rb:7:in `index'
+    C:/Ruby/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    C:/Ruby/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    C:/Ruby/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    C:/Ruby/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    C:/Ruby/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    C:/Ruby/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    C:/Ruby/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    C:/Ruby/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    C:/Ruby/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    C:/Ruby/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (281.0ms)
+Rendered rescues/_request_and_response (0.0ms)
+Rendering rescues/layout (internal_server_error)
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing AlbumsController#index (for 127.0.0.1 at 2010-03-05 16:32:17) [GET]
+  [4;36;1mAlbum Load (0.0ms)[0m   [0;1mSELECT * FROM `albums` [0m
+Rendering template within layouts/albums
+Rendering albums/index
+  [4;35;1mAlbum Columns (0.0ms)[0m   [0mSHOW FIELDS FROM `albums`[0m
+
+ActionView::TemplateError (undefined local variable or method `new_album_path' for #<ActionView::Base:0x37f4f60>) on line #22 of app/views/albums/index.html.erb:
+19: 
+20: <br />
+21: 
+22: <%= link_to 'New album', new_album_path %>
+
+    app/views/albums/index.html.erb:22
+    app/controllers/albums_controller.rb:7:in `index'
+    C:/Ruby/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    C:/Ruby/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    C:/Ruby/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    C:/Ruby/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    C:/Ruby/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    C:/Ruby/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    C:/Ruby/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    C:/Ruby/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    C:/Ruby/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    C:/Ruby/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (156.0ms)
+Rendered rescues/_request_and_response (0.0ms)
+Rendering rescues/layout (internal_server_error)
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing AlbumsController#index (for 127.0.0.1 at 2010-03-05 16:43:22) [GET]
+  [4;36;1mAlbum Load (0.0ms)[0m   [0;1mSELECT * FROM `albums` [0m
+Rendering template within layouts/albums
+Rendering albums/index
+  [4;35;1mAlbum Columns (31.0ms)[0m   [0mSHOW FIELDS FROM `albums`[0m
+Completed in 313ms (View: 251, DB: 31) | 200 OK [http://localhost/]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing AlbumsController#show (for 127.0.0.1 at 2010-03-05 16:43:38) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mAlbum Columns (94.0ms)[0m   [0;1mSHOW FIELDS FROM `albums`[0m
+  [4;35;1mAlbum Load (250.0ms)[0m   [0mSELECT * FROM `albums` WHERE (`albums`.`id` = 1) [0m
+Rendering template within layouts/albums
+Rendering albums/show
+
+ActionView::TemplateError (undefined method `edit_album_path' for #<ActionView::Base:0x34b7c80>) on line #12 of app/views/albums/show.html.erb:
+9: </p>
+10: 
+11: 
+12: <%= link_to 'Edit', edit_album_path(@album) %> |
+13: <%= link_to 'Back', albums_path %>
+
+    app/views/albums/show.html.erb:12
+    app/controllers/albums_controller.rb:18:in `show'
+    C:/Ruby/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    C:/Ruby/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    C:/Ruby/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    C:/Ruby/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    C:/Ruby/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    C:/Ruby/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    C:/Ruby/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    C:/Ruby/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    C:/Ruby/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    C:/Ruby/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (204.0ms)
+Rendered rescues/_request_and_response (15.0ms)
+Rendering rescues/layout (internal_server_error)
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing AlbumsController#show (for 127.0.0.1 at 2010-03-05 16:44:55) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mAlbum Columns (93.0ms)[0m   [0;1mSHOW FIELDS FROM `albums`[0m
+  [4;35;1mAlbum Load (16.0ms)[0m   [0mSELECT * FROM `albums` WHERE (`albums`.`id` = 1) [0m
+Rendering template within layouts/albums
+Rendering albums/show
+Completed in 172ms (View: 47, DB: 109) | 200 OK [http://localhost/music/show/1]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing AlbumsController#edit (for 127.0.0.1 at 2010-03-05 16:44:59) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mAlbum Columns (47.0ms)[0m   [0;1mSHOW FIELDS FROM `albums`[0m
+  [4;35;1mAlbum Load (47.0ms)[0m   [0mSELECT * FROM `albums` WHERE (`albums`.`id` = 1) [0m
+Rendering template within layouts/albums
+Rendering albums/edit
+
+ActionView::TemplateError (undefined method `album_path' for #<ActionView::Base:0x34c7d88>) on line #3 of app/views/albums/edit.html.erb:
+1: <h1>Editing album</h1>
+2: 
+3: <% form_for(@album) do |f| %>
+4:   <%= f.error_messages %>
+5: 
+6:   <p>
+
+    app/views/albums/edit.html.erb:3
+    C:/Ruby/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    C:/Ruby/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    C:/Ruby/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    C:/Ruby/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    C:/Ruby/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    C:/Ruby/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    C:/Ruby/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    C:/Ruby/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    C:/Ruby/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    C:/Ruby/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (235.0ms)
+Rendered rescues/_request_and_response (0.0ms)
+Rendering rescues/layout (internal_server_error)
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing AlbumsController#show (for 127.0.0.1 at 2010-03-05 16:46:52) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mAlbum Columns (47.0ms)[0m   [0;1mSHOW FIELDS FROM `albums`[0m
+  [4;35;1mAlbum Load (15.0ms)[0m   [0mSELECT * FROM `albums` WHERE (`albums`.`id` = 1) [0m
+Rendering template within layouts/albums
+Rendering albums/show
+Completed in 94ms (View: 16, DB: 62) | 200 OK [http://localhost/music/show/1]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing AlbumsController#edit (for 127.0.0.1 at 2010-03-05 16:46:55) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mAlbum Columns (63.0ms)[0m   [0;1mSHOW FIELDS FROM `albums`[0m
+  [4;35;1mAlbum Load (31.0ms)[0m   [0mSELECT * FROM `albums` WHERE (`albums`.`id` = 1) [0m
+Rendering template within layouts/albums
+Rendering albums/edit
+Completed in 156ms (View: 47, DB: 94) | 200 OK [http://localhost/music/edit/1]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing AlbumsController#show (for 127.0.0.1 at 2010-03-05 16:47:04) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mAlbum Columns (31.0ms)[0m   [0;1mSHOW FIELDS FROM `albums`[0m
+  [4;35;1mAlbum Load (16.0ms)[0m   [0mSELECT * FROM `albums` WHERE (`albums`.`id` = 1) [0m
+Rendering template within layouts/albums
+Rendering albums/show
+Completed in 62ms (View: 15, DB: 47) | 200 OK [http://localhost/music/show/1]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing AlbumsController#edit (for 127.0.0.1 at 2010-03-05 16:47:06) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mAlbum Columns (31.0ms)[0m   [0;1mSHOW FIELDS FROM `albums`[0m
+  [4;35;1mAlbum Load (16.0ms)[0m   [0mSELECT * FROM `albums` WHERE (`albums`.`id` = 1) [0m
+Rendering template within layouts/albums
+Rendering albums/edit
+Completed in 79ms (View: 16, DB: 47) | 200 OK [http://localhost/music/edit/1]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing AlbumsController#index (for 127.0.0.1 at 2010-03-05 16:47:08) [GET]
+  [4;36;1mAlbum Load (0.0ms)[0m   [0;1mSELECT * FROM `albums` [0m
+Rendering template within layouts/albums
+Rendering albums/index
+  [4;35;1mAlbum Columns (47.0ms)[0m   [0mSHOW FIELDS FROM `albums`[0m
+Completed in 78ms (View: 16, DB: 47) | 200 OK [http://localhost/music]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing AlbumsController#edit (for 127.0.0.1 at 2010-03-05 16:47:12) [GET]
+  Parameters: {"id"=>"2"}
+  [4;36;1mAlbum Columns (31.0ms)[0m   [0;1mSHOW FIELDS FROM `albums`[0m
+  [4;35;1mAlbum Load (16.0ms)[0m   [0mSELECT * FROM `albums` WHERE (`albums`.`id` = 2) [0m
+Rendering template within layouts/albums
+Rendering albums/edit
+Completed in 79ms (View: 16, DB: 47) | 200 OK [http://localhost/music/edit/2]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing AlbumsController#index (for 127.0.0.1 at 2010-03-05 16:47:15) [GET]
+  [4;36;1mAlbum Load (0.0ms)[0m   [0;1mSELECT * FROM `albums` [0m
+Rendering template within layouts/albums
+Rendering albums/index
+  [4;35;1mAlbum Columns (46.0ms)[0m   [0mSHOW FIELDS FROM `albums`[0m
+Completed in 78ms (View: 16, DB: 46) | 200 OK [http://localhost/music]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing AlbumsController#new (for 127.0.0.1 at 2010-03-05 16:47:24) [GET]
+  [4;36;1mAlbum Columns (47.0ms)[0m   [0;1mSHOW FIELDS FROM `albums`[0m
+Rendering template within layouts/albums
+Rendering albums/new
+
+ActionView::TemplateError (undefined method `albums_path' for #<ActionView::Base:0x376264c>) on line #3 of app/views/albums/new.html.erb:
+1: <h1>New album</h1>
+2: 
+3: <% form_for(@album) do |f| %>
+4:   <%= f.error_messages %>
+5: 
+6:   <p>
+
+    app/views/albums/new.html.erb:3
+    app/controllers/albums_controller.rb:29:in `new'
+    C:/Ruby/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    C:/Ruby/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    C:/Ruby/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    C:/Ruby/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    C:/Ruby/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    C:/Ruby/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    C:/Ruby/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    C:/Ruby/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    C:/Ruby/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    C:/Ruby/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (172.0ms)
+Rendered rescues/_request_and_response (0.0ms)
+Rendering rescues/layout (internal_server_error)
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing AlbumsController#edit (for 127.0.0.1 at 2010-03-05 16:49:33) [GET]
+  Parameters: {"id"=>"2"}
+  [4;35;1mAlbum Columns (16.0ms)[0m   [0mSHOW FIELDS FROM `albums`[0m
+  [4;36;1mAlbum Load (47.0ms)[0m   [0;1mSELECT * FROM `albums` WHERE (`albums`.`id` = 2) [0m
+Rendering template within layouts/albums
+Rendering albums/edit
+Completed in 94ms (View: 15, DB: 63) | 200 OK [http://localhost/music/edit/2]
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing AlbumsController#index (for 127.0.0.1 at 2010-03-05 16:49:35) [GET]
+  [4;35;1mAlbum Load (0.0ms)[0m   [0mSELECT * FROM `albums` [0m
+Rendering template within layouts/albums
+Rendering albums/index
+  [4;36;1mAlbum Columns (16.0ms)[0m   [0;1mSHOW FIELDS FROM `albums`[0m
+Completed in 47ms (View: 15, DB: 16) | 200 OK [http://localhost/music]
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing AlbumsController#new (for 127.0.0.1 at 2010-03-05 16:49:37) [GET]
+  [4;35;1mAlbum Columns (47.0ms)[0m   [0mSHOW FIELDS FROM `albums`[0m
+Rendering template within layouts/albums
+Rendering albums/new
+
+ActionView::TemplateError (undefined method `albums_path' for #<ActionView::Base:0x376f108>) on line #3 of app/views/albums/new.html.erb:
+1: <h1>New album</h1>
+2: 
+3: <% form_for(@album) do |f| %>
+4:   <%= f.error_messages %>
+5: 
+6:   <p>
+
+    app/views/albums/new.html.erb:3
+    app/controllers/albums_controller.rb:29:in `new'
+    C:/Ruby/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    C:/Ruby/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    C:/Ruby/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    C:/Ruby/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    C:/Ruby/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    C:/Ruby/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    C:/Ruby/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    C:/Ruby/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    C:/Ruby/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    C:/Ruby/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (266.0ms)
+Rendered rescues/_request_and_response (15.0ms)
+Rendering rescues/layout (internal_server_error)
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-03-05 17:04:41) [GET]
+
+SyntaxError (C:/Documents and Settings/laffertyj/BitNami RubyStack projects/music_store/app/controllers/albums_controller.rb:10: syntax error, unexpected tIDENTIFIER, expecting kDO or '{' or '('
+... format.xml  { render <img src="http://s.wordpress.com/wp-in...
+                              ^
+C:/Documents and Settings/laffertyj/BitNami RubyStack projects/music_store/app/controllers/albums_controller.rb:10: syntax error, unexpected tIDENTIFIER, expecting '}'
+...ages/smilies/icon_mad.gif" alt=":x" class="wp-smiley"> ml =>...
+                              ^
+C:/Documents and Settings/laffertyj/BitNami RubyStack projects/music_store/app/controllers/albums_controller.rb:10: syntax error, unexpected kCLASS, expecting '}'
+...s/icon_mad.gif" alt=":x" class="wp-smiley"> ml => @albums }
+                              ^
+C:/Documents and Settings/laffertyj/BitNami RubyStack projects/music_store/app/controllers/albums_controller.rb:10: syntax error, unexpected tASSOC, expecting '}'
+...=":x" class="wp-smiley"> ml => @albums }
+                              ^
+C:/Documents and Settings/laffertyj/BitNami RubyStack projects/music_store/app/controllers/albums_controller.rb:21: syntax error, unexpected tIDENTIFIER, expecting kDO or '{' or '('
+... format.xml  { render <img src="http://s.wordpress.com/wp-in...
+                              ^
+C:/Documents and Settings/laffertyj/BitNami RubyStack projects/music_store/app/controllers/albums_controller.rb:21: syntax error, unexpected tIDENTIFIER, expecting '}'
+...ages/smilies/icon_mad.gif" alt=":x" class="wp-smiley"> ml =>...
+                              ^
+C:/Documents and Settings/laffertyj/BitNami RubyStack projects/music_store/app/controllers/albums_controller.rb:21: syntax error, unexpected kCLASS, expecting '}'
+...s/icon_mad.gif" alt=":x" class="wp-smiley"> ml => @album }
+                              ^
+C:/Documents and Settings/laffertyj/BitNami RubyStack projects/music_store/app/controllers/albums_controller.rb:21: syntax error, unexpected tASSOC, expecting '}'
+...=":x" class="wp-smiley"> ml => @album }
+                              ^
+C:/Documents and Settings/laffertyj/BitNami RubyStack projects/music_store/app/controllers/albums_controller.rb:32: syntax error, unexpected tIDENTIFIER, expecting kDO or '{' or '('
+... format.xml  { render <img src="http://s.wordpress.com/wp-in...
+                              ^
+C:/Documents and Settings/laffertyj/BitNami RubyStack projects/music_store/app/controllers/albums_controller.rb:32: syntax error, unexpected tIDENTIFIER, expecting '}'
+...ages/smilies/icon_mad.gif" alt=":x" class="wp-smiley"> ml =>...
+                              ^
+C:/Documents and Settings/laffertyj/BitNami RubyStack projects/music_store/app/controllers/albums_controller.rb:32: syntax error, unexpected kCLASS, expecting '}'
+...s/icon_mad.gif" alt=":x" class="wp-smiley"> ml => @album }
+                              ^
+C:/Documents and Settings/laffertyj/BitNami RubyStack projects/music_store/app/controllers/albums_controller.rb:32: syntax error, unexpected tASSOC, expecting '}'
+...=":x" class="wp-smiley"> ml => @album }
+                              ^
+C:/Documents and Settings/laffertyj/BitNami RubyStack projects/music_store/app/controllers/albums_controller.rb:50: syntax error, unexpected tIDENTIFIER, expecting kDO or '{' or '('
+... format.xml  { render <img src="http://s.wordpress.com/wp-in...
+                              ^
+C:/Documents and Settings/laffertyj/BitNami RubyStack projects/music_store/app/controllers/albums_controller.rb:50: syntax error, unexpected tIDENTIFIER, expecting '}'
+...ages/smilies/icon_mad.gif" alt=":x" class="wp-smiley"> ml =>...
+                              ^
+C:/Documents and Settings/laffertyj/BitNami RubyStack projects/music_store/app/controllers/albums_controller.rb:50: syntax error, unexpected kCLASS, expecting '}'
+...s/icon_mad.gif" alt=":x" class="wp-smiley"> ml => @album, :s...
+                              ^
+C:/Documents and Settings/laffertyj/BitNami RubyStack projects/music_store/app/controllers/albums_controller.rb:50: syntax error, unexpected tASSOC, expecting '}'
+...=":x" class="wp-smiley"> ml => @album, :status => :created, ...
+                              ^
+C:/Documents and Settings/laffertyj/BitNami RubyStack projects/music_store/app/controllers/albums_controller.rb:50: syntax error, unexpected tASSOC, expecting tCOLON2 or '[' or '.'
+...ley"> ml => @album, :status => :created, :location => @album...
+                              ^
+C:/Documents and Settings/laffertyj/BitNami RubyStack projects/music_store/app/controllers/albums_controller.rb:53: syntax error, unexpected tIDENTIFIER, expecting kDO or '{' or '('
+... format.xml  { render <img src="http://s.wordpress.com/wp-in...
+                              ^
+C:/Documents and Settings/laffertyj/BitNami RubyStack projects/music_store/app/controllers/albums_controller.rb:53: syntax error, unexpected tIDENTIFIER, expecting '}'
+...ages/smilies/icon_mad.gif" alt=":x" class="wp-smiley"> ml =>...
+                              ^
+C:/Documents and Settings/laffertyj/BitNami RubyStack projects/music_store/app/controllers/albums_controller.rb:53: syntax error, unexpected kCLASS, expecting '}'
+...s/icon_mad.gif" alt=":x" class="wp-smiley"> ml => @album.err...
+                              ^
+C:/Documents and Settings/laffertyj/BitNami RubyStack projects/music_store/app/controllers/albums_controller.rb:53: syntax error, unexpected tASSOC, expecting '}'
+...=":x" class="wp-smiley"> ml => @album.errors, :status => :un...
+                              ^
+C:/Documents and Settings/laffertyj/BitNami RubyStack projects/music_store/app/controllers/albums_controller.rb:53: syntax error, unexpected tASSOC, expecting tCOLON2 or '[' or '.'
+...l => @album.errors, :status => :unprocessable_entity }
+                              ^
+C:/Documents and Settings/laffertyj/BitNami RubyStack projects/music_store/app/controllers/albums_controller.rb:67: syntax error, unexpected tIDENTIFIER, expecting kDO or '{' or '('
+...   format.xml  { head <img src="http://s.wordpress.com/wp-in...
+                              ^
+C:/Documents and Settings/laffertyj/BitNami RubyStack projects/music_store/app/controllers/albums_controller.rb:67: syntax error, unexpected tIDENTIFIER, expecting '}'
+...milies/icon_surprised.gif" alt=":o" class="wp-smiley"> k }
+                              ^
+C:/Documents and Settings/laffertyj/BitNami RubyStack projects/music_store/app/controllers/albums_controller.rb:67: syntax error, unexpected kCLASS, expecting '}'
+..._surprised.gif" alt=":o" class="wp-smiley"> k }
+                              ^
+C:/Documents and Settings/laffertyj/BitNami RubyStack projects/music_store/app/controllers/albums_controller.rb:70: syntax error, unexpected tIDENTIFIER, expecting kDO or '{' or '('
+... format.xml  { render <img src="http://s.wordpress.com/wp-in...
+                              ^
+C:/Documents and Settings/laffertyj/BitNami RubyStack projects/music_store/app/controllers/albums_controller.rb:70: syntax error, unexpected tIDENTIFIER, expecting '}'
+...ages/smilies/icon_mad.gif" alt=":x" class="wp-smiley"> ml =>...
+                              ^
+C:/Documents and Settings/laffertyj/BitNami RubyStack projects/music_store/app/controllers/albums_controller.rb:70: syntax error, unexpected kCLASS, expecting '}'
+...s/icon_mad.gif" alt=":x" class="wp-smiley"> ml => @album.err...
+                              ^
+C:/Documents and Settings/laffertyj/BitNami RubyStack projects/music_store/app/controllers/albums_controller.rb:70: syntax error, unexpected tASSOC, expecting '}'
+...=":x" class="wp-smiley"> ml => @album.errors, :status => :un...
+                              ^
+C:/Documents and Settings/laffertyj/BitNami RubyStack projects/music_store/app/controllers/albums_controller.rb:70: syntax error, unexpected tASSOC, expecting tCOLON2 or '[' or '.'
+...l => @album.errors, :status => :unprocessable_entity }
+                              ^
+C:/Documents and Settings/laffertyj/BitNami RubyStack projects/music_store/app/controllers/albums_controller.rb:83: syntax error, unexpected tIDENTIFIER, expecting kDO or '{' or '('
+...   format.xml  { head <img src="http://s.wordpress.com/wp-in...
+                              ^
+C:/Documents and Settings/laffertyj/BitNami RubyStack projects/music_store/app/controllers/albums_controller.rb:83: syntax error, unexpected tIDENTIFIER, expecting '}'
+...milies/icon_surprised.gif" alt=":o" class="wp-smiley"> k }
+                              ^
+C:/Documents and Settings/laffertyj/BitNami RubyStack projects/music_store/app/controllers/albums_controller.rb:83: syntax error, unexpected kCLASS, expecting '}'
+..._surprised.gif" alt=":o" class="wp-smiley"> k }
+                              ^):
+  C:/Ruby/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  C:/Ruby/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (110.0ms)
+Rendered rescues/_request_and_response (0.0ms)
+Rendering rescues/layout (internal_server_error)
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing AlbumsController#index (for 127.0.0.1 at 2010-03-05 17:05:24) [GET]
+  [4;36;1mAlbum Load (0.0ms)[0m   [0;1mSELECT * FROM `albums` [0m
+Rendering template within layouts/albums
+Rendering albums/index
+  [4;35;1mAlbum Columns (16.0ms)[0m   [0mSHOW FIELDS FROM `albums`[0m
+Completed in 78ms (View: 31, DB: 16) | 200 OK [http://localhost/]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing AlbumsController#show (for 127.0.0.1 at 2010-03-05 17:05:27) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mAlbum Columns (47.0ms)[0m   [0;1mSHOW FIELDS FROM `albums`[0m
+  [4;35;1mAlbum Load (15.0ms)[0m   [0mSELECT * FROM `albums` WHERE (`albums`.`id` = 1) [0m
+Rendering template within layouts/albums
+Rendering albums/show
+Completed in 109ms (View: 16, DB: 62) | 200 OK [http://localhost/music/show/1]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing AlbumsController#index (for 127.0.0.1 at 2010-03-05 17:05:29) [GET]
+  [4;36;1mAlbum Load (0.0ms)[0m   [0;1mSELECT * FROM `albums` [0m
+Rendering template within layouts/albums
+Rendering albums/index
+  [4;35;1mAlbum Columns (47.0ms)[0m   [0mSHOW FIELDS FROM `albums`[0m
+Completed in 78ms (View: 15, DB: 47) | 200 OK [http://localhost/music]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing AlbumsController#show (for 127.0.0.1 at 2010-03-05 17:05:33) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mAlbum Columns (47.0ms)[0m   [0;1mSHOW FIELDS FROM `albums`[0m
+  [4;35;1mAlbum Load (15.0ms)[0m   [0mSELECT * FROM `albums` WHERE (`albums`.`id` = 1) [0m
+Rendering template within layouts/albums
+Rendering albums/show
+Completed in 78ms (View: 16, DB: 62) | 200 OK [http://localhost/music/show/1]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing AlbumsController#index (for 127.0.0.1 at 2010-03-05 17:05:35) [GET]
+  [4;36;1mAlbum Load (0.0ms)[0m   [0;1mSELECT * FROM `albums` [0m
+Rendering template within layouts/albums
+Rendering albums/index
+  [4;35;1mAlbum Columns (47.0ms)[0m   [0mSHOW FIELDS FROM `albums`[0m
+Completed in 204ms (View: 141, DB: 47) | 200 OK [http://localhost/music]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing AlbumsController#new (for 127.0.0.1 at 2010-03-05 17:05:36) [GET]
+  [4;36;1mAlbum Columns (31.0ms)[0m   [0;1mSHOW FIELDS FROM `albums`[0m
+Rendering template within layouts/albums
+Rendering albums/new
+Completed in 93ms (View: 31, DB: 31) | 200 OK [http://localhost/music/new]
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing AlbumsController#index (for 127.0.0.1 at 2010-03-05 17:05:39) [GET]
+  [4;35;1mAlbum Load (0.0ms)[0m   [0mSELECT * FROM `albums` [0m
+Rendering template within layouts/albums
+Rendering albums/index
+  [4;36;1mAlbum Columns (31.0ms)[0m   [0;1mSHOW FIELDS FROM `albums`[0m
+Completed in 93ms (View: 47, DB: 31) | 200 OK [http://localhost/music]
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing AlbumsController#destroy (for 127.0.0.1 at 2010-03-05 17:05:43) [GET]
+  Parameters: {"id"=>"3"}
+  [4;35;1mAlbum Columns (31.0ms)[0m   [0mSHOW FIELDS FROM `albums`[0m
+  [4;36;1mAlbum Load (16.0ms)[0m   [0;1mSELECT * FROM `albums` WHERE (`albums`.`id` = 3) [0m
+  [4;35;1mSQL (16.0ms)[0m   [0mBEGIN[0m
+  [4;36;1mAlbum Destroy (78.0ms)[0m   [0;1mDELETE FROM `albums` WHERE `id` = 3[0m
+  [4;35;1mSQL (234.0ms)[0m   [0mCOMMIT[0m
+
+NameError (undefined local variable or method `albums_url' for #<AlbumsController:0x371f98c>):
+  app/controllers/albums_controller.rb:81:in `destroy'
+  app/controllers/albums_controller.rb:80:in `destroy'
+  C:/Ruby/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  C:/Ruby/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (125.0ms)
+Rendered rescues/_request_and_response (0.0ms)
+Rendering rescues/layout (internal_server_error)

@@ -1,0 +1,20 @@
+<h1>Editing album</h1>
+<%= error_messages_for :album %>
+<% form_for :album, @album, :url => { :controller => "albums", :action => "update" } do |f| %>
+
+    <b>Title</b>
+
+    <%= f.text_field :title %>
+    <b>Review</b>
+
+    <%= f.text_area :review %>
+
+    <%= f.submit "Update" %>
+
+
+<% end %>
+
+
+<%= link_to 'Show', :controller => "albums", :action => "show", :id => @album.id %> |
+
+<%= link_to 'Back', :controller => "albums", :action => "index" %>
